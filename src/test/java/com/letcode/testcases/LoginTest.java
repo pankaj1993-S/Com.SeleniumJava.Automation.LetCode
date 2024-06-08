@@ -9,7 +9,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class LoginTest extends BaseClass {
-    LoginPage loginpage ;
+    LoginPage loginpage;
+
     public LoginTest() {
         super();
     }
@@ -18,21 +19,21 @@ public class LoginTest extends BaseClass {
     public void setup() throws InterruptedException {
         initialization();
         loginpage = new LoginPage();
-        loginpage.loginToPage();
+        loginpage.loginToPage(prop.getProperty("username"), prop.getProperty("password"));
     }
 
     @Test(priority = -1)
     public void loginPageTitleTest() {
-        String title=loginpage.validateTitleLoginPage();
-        Assert.assertEquals(title,"LetCode - Testing Hub");
-        System.out.println("Title of the Page :"+ title);
+        String title = loginpage.validateTitleLoginPage();
+        Assert.assertEquals(title, "LetCode - Testing Hub");
+        System.out.println("Title of the Page :" + title);
 
     }
 
     @Test(priority = -2)
-    public void validatelogoOfThePage(){
-       boolean flag =loginpage.validateLogo();
-       Assert.assertTrue(flag, "Page Logo Displayed");
+    public void validatelogoOfThePage() {
+        boolean flag = loginpage.validateLogo();
+        Assert.assertTrue(flag, "Page Logo Displayed");
 
     }
 

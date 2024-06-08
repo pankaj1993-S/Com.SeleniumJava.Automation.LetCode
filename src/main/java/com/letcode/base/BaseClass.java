@@ -3,6 +3,7 @@ package com.letcode.base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -24,18 +25,18 @@ public class BaseClass {
         }
 
     }
+
     public static void initialization() throws InterruptedException {
 
         String browserName = prop.getProperty("browser");
         System.out.println("Execution Started..........");
-        if(browserName.equals("chrome")) {
+        if (browserName.equals("chrome")) {
             System.out.println("Chrome Browser Launched..........");
-            System.setProperty("webdriver.chrome.driver","src/main/resources/Drivers/chromedriver.exe");
-            driver =new ChromeDriver();
-        }
-        else if(browserName.equals("firefox")) {
-            System.setProperty("webdriver.gecko.driver","src/main/resources/Drivers/geckodriver.exe");
-            driver =new FirefoxDriver();
+            System.setProperty("webdriver.chrome.driver", "src/main/resources/Drivers/chromedriver.exe");
+            driver = new ChromeDriver();
+        } else if (browserName.equals("firefox")) {
+            System.setProperty("webdriver.gecko.driver", "src/main/resources/Drivers/geckodriver.exe");
+            driver = new FirefoxDriver();
         }
         System.out.println("Browser Maximized..........");
         driver.manage().window().maximize();
